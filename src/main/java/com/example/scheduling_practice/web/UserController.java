@@ -20,7 +20,7 @@ public class UserController {
         List<User> list = userService.listUsers();
         return ResponseEntity.ok(list);
     }
-    @GetMapping("/webId")
+    @GetMapping("/{webId}")
     public User getById(@PathVariable long webId){
         return userService.getById(webId);
     }
