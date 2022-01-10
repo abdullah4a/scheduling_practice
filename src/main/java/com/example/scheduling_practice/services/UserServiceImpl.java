@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
@@ -20,13 +20,42 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getById(long webId) {
-        Optional<User> optionalUser=userRepository.findById(webId);
-        if (optionalUser.isPresent()){
+    public User getById(Long webId) {
+        Optional<User> optionalUser = userRepository.findById(webId);
+        if (optionalUser.isPresent()) {
             return optionalUser.get();
-        }
-        else
+        } else
             throw new ExceptionHandler("User Not Found");
     }
+
+    @Override
+    public User save(User user) {
+        User model = userRepository.saveAndFlush(user);
+        if (model != null) {
+            return model;
+        } else
+            throw new ExceptionHandler("User Not Saved");
+    }
+
+    @Override
+    public User updateModel(Long webId, User user) {
+        Optional<User> optionalUser = userRepository.findById(webId);
+        if (optionalUser.isPresent()) {
+            User model = optionalUser.get();
+            model = userRepository.saveAndFlush(model);
+            return model;
+        } else {
+            return save(user);
+        }
+
+    }
+
+    @Override
+    public Boolean deleteUser(Long webId) {
+        userRepository.deleteById(webId);
+        boolean id = userRepository.existsById(webId);
+        return !id;
+    }
+
 
 }

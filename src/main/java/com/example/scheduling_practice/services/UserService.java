@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface UserService {
     List<User> listUsers();
-    User getById(long webId);
+    User getById(Long webId);
+    User save(User user);
+    User updateModel(Long webId,User user);
+    Boolean deleteUser(Long webId);
 }
