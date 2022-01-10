@@ -28,22 +28,9 @@ public class Branch {
     private String phoneNumber;
     private Boolean active;
 
-
-    //    @JoinTable(name = "userAddress",joinColumns = @JoinColumn(name = "postalCode");@JoinColumn())
-//    @JoinColumns({
-//            @JoinColumn(name = "postalCode"),
-//            @JoinColumn(name = "country"),
-//            @JoinColumn(name = "state"),
-//            @JoinColumn(name = "city"),
-//            @JoinColumn(name = "street"),
-//
-//    })
-//    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @ManyToOne()
-    @JoinTable(name = "userAddress",joinColumns = @JoinColumn(name = "addressId"), inverseJoinColumns = @JoinColumn(name = "webId"))
+    @JoinTable(name = "branchAddress",joinColumns = @JoinColumn(name = "addressId"), inverseJoinColumns = @JoinColumn(name = "webId"))
     private Address address;
-//    @OneToMany(mappedBy = "postalCode", cascade = CascadeType.ALL)
-//    private Set<Address> address;
     public Branch(Long webId, String firstName, String lastName, String userName, String userNumber, String gender, String dob, String title, String email, String networkCode, Boolean active, String phoneNumber, Address address) {
         this.webId = webId;
         this.firstName = firstName;
