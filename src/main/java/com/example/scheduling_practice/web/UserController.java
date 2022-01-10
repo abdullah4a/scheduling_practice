@@ -18,7 +18,6 @@ public class UserController {
     @GetMapping("/list")
     public ResponseEntity<List<User>> getList() {
         List<User> list = userService.listUsers();
-//        return new ResponseEntity<List<User>>(list, HttpStatus.OK);
         return ResponseEntity.ok(list);
     }
     @GetMapping("/webId")
