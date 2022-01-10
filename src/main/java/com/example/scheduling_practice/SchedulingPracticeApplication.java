@@ -1,0 +1,13 @@
+package com.example.scheduling_practice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SchedulingPracticeApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SchedulingPracticeApplication.class, args);
+	}
+
+}
