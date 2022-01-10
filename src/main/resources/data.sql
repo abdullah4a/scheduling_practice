@@ -1,0 +1,15 @@
+INSERT INTO user (web_Id,dob,email,first_Name,gender,last_Name,network_Code,phone_Number,title,user_Name,user_Number) VALUES (1,'Sat Jan 08 04:51:26 PKT 2022','test@test.com','TEST','Male','MODEL','','testNumber','TEST','Test_User','345325');
+-- INSERT INTO address (address_Id,postal_Code,country,state,city,street) VALUES (1,10,'TEST','TEST','TEST','TEST');
+-- INSERT INTO user_Address (address_Id, web_Id) VALUES (1,1);
+-- INSERT INTO branch (web_Id,full_Branch_Name,email,company_Id,branch_Name,branch_Number,fax_Number,phone_Number,url,active)
+-- VALUES (1,'TEST BRANCH','test@test.com','TEST ID','TEST','546654','','testNumber','TESTURL',true);
+-- INSERT INTO branch_Table (address_Id, web_Id) VALUES (1,1);
+-- INSERT INTO category (web_Id,category_Number,name,sub_Category) VALUES (1,'113513','TEST Category','TEST SUB Category');
+-- INSERT INTO client (web_Id,dob,email,first_Name,gender,last_Name,network_Code,phone_Number,active,client_Name,client_Number,business_Name,description)
+--  VALUES (1,'Sat Jan 08 04:51:26 PKT 2022','test@test.com','TEST','Male','MODEL','','testNumber',true,'Test_CLIENT','345325','TEST BUSINESS', 'NULL');
+-- INSERT INTO client_Table (address_Id, web_Id) VALUES (1,1);
+-- INSERT INTO customer (web_Id,dob,email,first_Name,gender,last_Name,network_Code,phone_Number,customer_Name,customer_Number,active)
+--  VALUES (1,'Sat Jan 08 04:51:26 PKT 2022','test@test.com','TEST','Male','MODEL','','testNumber','TEST CUSTOMER','345325',true);
+-- INSERT INTO cus_Table (address_Id, web_Id) VALUES (1,1);
+-- INSERT INTO scheduling (web_Id,start_Date,end_Date,branch_Id,event_Type,is_Recurring,duration,recurring_Pattern,exception_Dates,web_User_Id,title,customer_Id,customer_Number,customer_Name,work_Order_Id,work_Order_Name,work_Order_Priority)
+--  VALUES (1,'Sat Jan 08 04:51:26 PKT 2022','Sat Jan 08 04:51:26 PKT 2022','654654','WORK-EVENT',false,'300','','',2235,'TEST EVENT','345325','16540','TEST','65446','TEST','TEST');
