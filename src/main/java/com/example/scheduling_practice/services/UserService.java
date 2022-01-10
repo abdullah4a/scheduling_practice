@@ -8,6 +8,6 @@ public interface UserService {
     List<User> listUsers();
     User getById(Long webId);
     User save(User user);
-    User updateModel(Long webId,User user);
+    User updateUser(Long webId,User user);
     Boolean deleteUser(Long webId);
 }

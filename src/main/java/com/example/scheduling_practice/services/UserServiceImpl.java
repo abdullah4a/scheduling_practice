@@ -38,23 +38,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateModel(Long webId, User user) {
+    public User updateUser(Long webId, User user) {
         Optional<User> optionalUser = userRepository.findById(webId);
         if (optionalUser.isPresent()) {
             User model = optionalUser.get();
-            model = userRepository.saveAndFlush(model);
+            model = userRepository.saveAndFlush(user);
             return model;
-        } else {
-            return save(user);
         }
-
+        else throw new ExceptionHandler("Not Found");
     }
 
     @Override
     public Boolean deleteUser(Long webId) {
         userRepository.deleteById(webId);
-        boolean id = userRepository.existsById(webId);
-        return !id;
+        return true;
     }
 
 

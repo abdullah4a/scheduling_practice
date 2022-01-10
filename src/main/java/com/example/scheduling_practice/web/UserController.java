@@ -40,19 +40,12 @@ public class UserController {
     }
 
     @PutMapping("/{webId}")
-    public ResponseEntity<User> updateModel(@PathVariable Long webId, @RequestBody User user) {
-        User model = null;
+    public User updateModel(@PathVariable Long webId, @RequestBody User user) {
         try {
-            User response = (userService.getById(webId));
-            if (model != null) {
-                if (user.equals(response)) {
-                    return updateModel(webId,user);
-                }
-            }
+            return userService.updateUser(webId,user);
         } catch (ExceptionHandler exc) {
             throw new ExceptionHandler("Not Found", exc);
         }
-        return null;
     }
 
     @DeleteMapping("/{webId}")
@@ -60,7 +53,7 @@ public class UserController {
         try {
             return userService.deleteUser(webId);
 
-        } catch (ExceptionHandler exc) {
+        } catch (Exception exc) {
             throw new ExceptionHandler("Not Found", exc);
         }
     }
