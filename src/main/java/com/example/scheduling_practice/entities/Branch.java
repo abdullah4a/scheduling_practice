@@ -5,114 +5,85 @@ import javax.persistence.*;
 @Entity
 public class Branch {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "webId", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "web_id", nullable = false)
     private Long webId;
-    @Column(name = "firstName", nullable = false)
-    private String firstName;
-    @Column(name = "lastName", nullable = false)
-    private String lastName;
-    @Column(name = "userName", nullable = false)
-    private String userName;
-    @Column(name = "userNumber", nullable = false)
-    private String userNumber;
-    @Column(name = "gender", nullable = false)
-    private String gender;
-    private String dob;
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "fullBranchName", nullable = false)
+    private String fullBranchName;
+    @Column(name = "companyId", nullable = false)
+    private String companyId;
+    @Column(name = "branchName", nullable = false)
+    private String branchName;
+    @Column(name = "branchNumber", nullable = false)
+    private Long branchNumber;
     @Column(name = "email", nullable = false)
     private String email;
-    private String networkCode;
+    private String faxNumber;
     @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;
-    private Boolean active;
-
-    @ManyToOne()
-    @JoinTable(name = "branchAddress",joinColumns = @JoinColumn(name = "addressId"), inverseJoinColumns = @JoinColumn(name = "webId"))
+    @Column(name = "url")
+    private String url;
+    @Column(name = "active")
+    private String active;
+    @ManyToOne
+    @JoinTable(name = "branchTable", joinColumns = @JoinColumn(name = "addressId"), inverseJoinColumns = @JoinColumn(name = "webId"))
     private Address address;
-    public Branch(Long webId, String firstName, String lastName, String userName, String userNumber, String gender, String dob, String title, String email, String networkCode, Boolean active, String phoneNumber, Address address) {
+
+    public Branch(Long webId, String fullBranchName, String companyId, String branchName, Long branchNumber, String email, String faxNumber, String phoneNumber, String url, String active, Address address) {
         this.webId = webId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.userNumber = userNumber;
-        this.gender = gender;
-        this.active = active;
-        this.dob = dob;
-        this.title = title;
+        this.fullBranchName = fullBranchName;
+        this.companyId = companyId;
+        this.branchName = branchName;
+        this.branchNumber = branchNumber;
         this.email = email;
-        this.networkCode = networkCode;
+        this.faxNumber = faxNumber;
         this.phoneNumber = phoneNumber;
+        this.url = url;
+        this.active = active;
         this.address = address;
     }
 
     public Branch() {
-
     }
 
-    public Boolean getActive() {
-        return active;
+    public Long getWebId() {
+        return webId;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setWebId(Long webId) {
+        this.webId = webId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullBranchName() {
+        return fullBranchName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFullBranchName(String fullBranchName) {
+        this.fullBranchName = fullBranchName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getBranchName() {
+        return branchName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
     }
 
-    public String getUserNumber() {
-        return userNumber;
+    public Long getBranchNumber() {
+        return branchNumber;
     }
 
-    public void setUserNumber(String userNumber) {
-        this.userNumber = userNumber;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setBranchNumber(Long branchNumber) {
+        this.branchNumber = branchNumber;
     }
 
     public String getEmail() {
@@ -123,12 +94,12 @@ public class Branch {
         this.email = email;
     }
 
-    public String getNetworkCode() {
-        return networkCode;
+    public String getFaxNumber() {
+        return faxNumber;
     }
 
-    public void setNetworkCode(String networkCode) {
-        this.networkCode = networkCode;
+    public void setFaxNumber(String faxNumber) {
+        this.faxNumber = faxNumber;
     }
 
     public String getPhoneNumber() {
@@ -139,19 +110,27 @@ public class Branch {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
+    }
+
     public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public Long getWebId() {
-        return webId;
-    }
-
-    public void setWebId(Long webId) {
-        this.webId = webId;
     }
 }
