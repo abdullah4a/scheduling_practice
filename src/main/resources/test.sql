@@ -19,3 +19,6 @@ WHERE id=3213;
 
 -- Data Control Language (DCL)
 Grant INSERT,DELETE ON test_table TO current_user;
+
+-- Alias
+SELECT id as UserID FROM test_table;
